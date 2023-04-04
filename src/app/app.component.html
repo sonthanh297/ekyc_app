@@ -1,4 +1,14 @@
 <p>EKYWC</p>
-<a [routerLink]="['/auth']">Login</a>
+<a [routerLink]="['/auth/login']">Login</a>
+<ul>
+  <a [routerLink]="['/test']">Test</a>
+</ul>
+<ul>
+  <a [routerLink]="['/admin']">Test Route</a>
+</ul>
+<li>
+  <a routerLink="/test" routerLinkActive="active" ariaCurrentWhenActive="page">Heroes</a>
+</li>
+
 
 <router-outlet></router-outlet>
