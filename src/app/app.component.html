@@ -1,14 +1,13 @@
-<p>EKYWC</p>
-<a [routerLink]="['/auth/login']">Login</a>
-<ul>
-  <a [routerLink]="['/test']">Test</a>
-</ul>
-<ul>
-  <a [routerLink]="['/admin']">Test Route</a>
-</ul>
-<li>
-  <a routerLink="/test" routerLinkActive="active" ariaCurrentWhenActive="page">Heroes</a>
-</li>
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-item nav-link" routerLink="auth" routerLinkActive="active">Login</a>
+        <a class="nav-item nav-link" routerLink="/test" routerLinkActive="active">Test</a>
+    </div>
+</nav>
+<p>titit</p>
 
-
-<router-outlet></router-outlet>
+<!-- main app container -->
+<div class="app-container bg-light">
+    <router-outlet></router-outlet>
+</div>

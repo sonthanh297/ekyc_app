@@ -8,13 +8,11 @@ const authModule = () => import('./auth/auth.module').then(x => x.AuthModule);
 
 
 const routes: Routes = [
-{ path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+{ path: 'auth', component:LoginComponent },
 {
   path: 'test',
   component: TestComponent,
-},
-{  path: 'admin', loadChildren: authModule
-    },
+}
 ];
 
 @NgModule({
