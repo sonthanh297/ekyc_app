@@ -6,13 +6,14 @@ import { UserModule } from './user/user.module';
 
 const authModule = () => import('./auth/auth.module').then(x => x.AuthModule);
 
-
 const routes: Routes = [
-{ path: 'auth', component:LoginComponent },
+{ path: '', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
 {
   path: 'test',
   component: TestComponent,
-}
+},
+{  path: 'admin', loadChildren: authModule
+    },
 ];
 
 @NgModule({

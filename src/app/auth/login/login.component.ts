@@ -13,49 +13,7 @@ import { LoggerService } from '../service/logger.service';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent implements OnInit  {
+export class LoginComponent  {
 
-  loginForm: FormGroup = {} as FormGroup;
 
-  errorMessage: string = '';
-
-  get f(): { [key: string]: AbstractControl } {
-      return this.loginForm.controls;
-  }
-
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private authService: AuthService,
-              private logger: LoggerService) { }
-
-  ngOnInit() {
-      this.buildForm();
-  }
-
-  buildForm() {
-      this.loginForm = this.formBuilder.group({
-          email:      ['', [ Validators.required, ValidationService.emailValidator ]],
-          password:   ['', [ Validators.required, ValidationService.passwordValidator ]]
-      });
-  }
-
-  submit({ value, valid }: { value: User, valid: boolean }) {
-      this.authService.login(value)
-          .subscribe((status: boolean) => {
-              if (status) {
-                  if (this.authService.redirectUrl) {
-                      const redirectUrl = this.authService.redirectUrl;
-                      this.authService.redirectUrl = '';
-                      this.router.navigate([redirectUrl]);
-                  } else {
-                      this.router.navigate(['/customers']);
-                  }
-              } else {
-                  const loginError = 'Unable to login';
-                  this.errorMessage = loginError;
-
-              }
-          },
-          (err: any) => this.logger.log(err));
-  }
 }
