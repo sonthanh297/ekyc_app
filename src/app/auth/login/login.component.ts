@@ -11,7 +11,6 @@ import { first } from 'rxjs/operators';
 
 
 @Component({
-
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -30,9 +29,9 @@ export class LoginComponent implements OnInit  {
         private authenticationService: AuthenticationService
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.userValue) {
-            this.router.navigate(['/']);
-        }
+        // if (this.authenticationService.userValue) {
+        //     this.router.navigate(['/']);
+        // }
     }
 
     ngOnInit() {
