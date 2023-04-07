@@ -1,5 +1,4 @@
 
-
 export interface User {
   id: number;
   name: string;
@@ -7,4 +6,5 @@ export interface User {
   phone: string;
   email: string;
   website: string;
+  token?: string;
 }

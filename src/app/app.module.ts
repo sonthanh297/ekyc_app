@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { TestComponent } from './test/test.component';
 import { UserModule } from './user/user.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+import { fakeBackendProvider } from './auth/service/fake-backend';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,9 +16,13 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,UserModule
+    AppRoutingModule,
+    UserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+   
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
