@@ -2,29 +2,68 @@
     <p class="fs-1">Thông Tin Doanh Nghiệp</p>
 
     <div class="card">
-    <div class="card-header"><p class="text-start text-success mt-2 fs-3">Thông tin người kê khai</p></div>
+
         <!-- <div class="row mb-4">
           <div class="col-12 d-flex justify-content-center">
             <img alt="Home" class="ng-star-inserted" src="/assets/icons/icon-128x128.png" />
           </div>
         </div> -->
         <div class="card-body">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="card-header" ><p class="text-start text-success mt-2 fs-4">Thông tin người kê khai</p></div>
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3">
-                    <label class="form-label">Username</label>
+                    <label class="form-label">Họ và Tên</label>
                     <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }" />
                     <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
-                        <div *ngIf="f['username'].errors['required']">Username is required</div>
+                        <div *ngIf="f['username'].errors['required']">Không được để trống</div>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
-                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                    <label class="form-label">Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">Không được để trốnd</div>
                     </div>
                 </div>
-                <button [disabled]="loading" class="btn btn-primary ">
+                <div class="mb-3">
+                  <label class="form-label">Số điện thoại </label>
+                  <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" />
+                  <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                      <div *ngIf="f['phone'].errors['required']">Không được để trốn</div>
+                  </div>
+              </div>
+              <div class="form-check">
+              <input type="checkbox" formControlName = "isLegal" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Người kê khai là người đại diện theo pháp luật</label>
+            </div>
+
+
+            <div class="card-header"><p class="text-start text-success mt-3 fs-4">Thông tin doanh nghiệp </p></div>
+
+            <div class="mb-3">
+              <label class="form-label">Tên Công Ty </label>
+              <input type="text" formControlName="companyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['companyName'].errors }" />
+              <div *ngIf="submitted && f['companyName'].errors" class="invalid-feedback">
+                  <div *ngIf="f['companyName'].errors['required']">Không được để trống</div>
+              </div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Mã số thuế </label>
+              <input type="text" formControlName="mst" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mst'].errors }" />
+              <div *ngIf="submitted && f['mst'].errors" class="invalid-feedback">
+                  <div *ngIf="f['mst'].errors['required']">Không được để trống</div>
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nhóm ngành kinh doanh</label>
+            <select formControlName="kd">
+              <option [ngValue]="null" disabled>Chọn</option>
+              <option *ngFor="let country of list" >{{country}}</option>
+            </select>
+        </div>
+
+                <button [disabled]="loading" class="btn btn-primary mt-3" routerLink="/auth">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Tiếp tục
                 </button>

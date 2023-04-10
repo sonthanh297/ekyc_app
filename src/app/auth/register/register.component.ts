@@ -12,10 +12,14 @@ import { AuthenticationService } from '../service/authentication.service';
 export class RegisterComponent implements OnInit {
 
 
-  loginForm!: FormGroup;
+    userForm!: FormGroup;
+    smeForm!: FormGroup;
+
     loading = false;
     submitted = false;
     error = '';
+
+    list = ["A","B","C","D","E","F"];
 
     constructor(
         private formBuilder: FormBuilder,
@@ -30,26 +34,33 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.loginForm = this.formBuilder.group({
+        this.userForm = this.formBuilder.group({
             username: ['', Validators.required],
-            password: ['', Validators.required]
+            email: ['', Validators.required],
+            phone: ['', Validators.required],
+            isLegal: [false, Validators.requiredTrue],
+            companyName: ['', Validators.required],
+            mst: ['', Validators.required],
+            kd:[]
         });
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
+    get f() { return this.userForm.controls; }
+
+    get sme() { return this.smeForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.loginForm.invalid) {
+        if (this.userForm.invalid) {
             return;
         }
 
         this.error = '';
         this.loading = true;
-        this.authenticationService.login(this.f['username'].value, this.f['password'].value)
+        this.authenticationService.login(this.f['username'].value, this.f['email'].value)
             .pipe(first())
             .subscribe({
                 next: () => {
