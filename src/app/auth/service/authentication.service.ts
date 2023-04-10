@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { User } from '../model/user.model';
+import { IbankUser, User } from '../model/user.model';
 import { environment } from 'src/environments/environment';
 
 
@@ -13,12 +13,18 @@ export class AuthenticationService {
     private userSubject: BehaviorSubject<User | null>;
     public user: Observable<User | null>;
 
+    private userIbankSubject: BehaviorSubject<IbankUser | null>;
+    public userIbank: Observable<IbankUser | null>;
+
     constructor(
         private router: Router,
         private http: HttpClient
     ) {
         this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
         this.user = this.userSubject.asObservable();
+
+        this.userIbankSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('ibankuser')!));
+        this.userIbank = this.userIbankSubject.asObservable();
     }
 
     public get userValue() {
@@ -40,7 +46,7 @@ export class AuthenticationService {
       return this.http.post<any>(`${environment.apiUrl}/ibankuser`, { username, phone,email,isLegal,companyName,mst,kd })
           .pipe(map(user => {
               // store user details and jwt token in local storage to keep user logged in between page refreshes
-              localStorage.setItem('user', JSON.stringify(user));
+              localStorage.setItem('ibankuser', JSON.stringify(user));
               this.userSubject.next(user);
               return user;
           }));

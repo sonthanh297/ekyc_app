@@ -12,7 +12,7 @@ export interface User {
   token?: string;
 }
 
-export interface ibankUser {
+export interface IbankUser {
   id: number;
   username: string;
   phone: string;

@@ -38,10 +38,10 @@ export class RegisterComponent implements OnInit {
             username: ['', Validators.required],
             email: ['', Validators.required],
             phone: ['', Validators.required],
-            isLegal: [false, Validators.requiredTrue],
+            isLegal: [false],
             companyName: ['', Validators.required],
             mst: ['', Validators.required],
-            kd:[]
+            kd:['']
         });
     }
 
@@ -60,13 +60,21 @@ export class RegisterComponent implements OnInit {
 
         this.error = '';
         this.loading = true;
-        this.authenticationService.login(this.f['username'].value, this.f['email'].value)
+
+
+        this.authenticationService.registerIbank(this.f['username'].value, 
+        this.f['email'].value, 
+        this.f['phone'].value, 
+        this.f['isLegal'].value,
+        this.f['companyName'].value,
+        this.f['mst'].value,
+        this.f['kd'].value)
             .pipe(first())
             .subscribe({
                 next: () => {
                     // get return url from route parameters or default to '/'
-                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                    this.router.navigate([returnUrl]);
+                    //const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                    this.router.navigate(['/user']);
                 },
                 error: error => {
                     this.error = error;

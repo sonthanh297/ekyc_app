@@ -24,7 +24,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
                     case url.endsWith('/ibankuser') && method === 'POST':
-                    return getUsers();
+                    return ibankUser();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -53,6 +53,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function ibankUser() {
 
+            const {username, phone, email,isLegal,companyName,mst,kd} = body;
+            return ok ();
+            
         }
 
 
