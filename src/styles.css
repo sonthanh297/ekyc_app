@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.mt-2 {
+    margin-top: 1220;
+}

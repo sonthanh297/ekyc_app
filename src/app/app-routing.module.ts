@@ -5,7 +5,10 @@ import { TestComponent } from './test/test.component';
 
 
 const routes: Routes = [
-
+  {
+    path: '',
+    loadChildren: () => import('../app/home/home.module').then(m => m.HomeModule)
+  },
 {
   path: 'test',
   component: TestComponent,
