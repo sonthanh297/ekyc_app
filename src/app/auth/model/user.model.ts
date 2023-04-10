@@ -11,3 +11,14 @@ export interface User {
   lastName?: string;
   token?: string;
 }
+
+export interface ibankUser {
+  id: number;
+  username: string;
+  phone: string;
+  email: string;
+  isLegal: string;
+  companyName?: string;
+  mst?: string;
+  kd?: string;
+}

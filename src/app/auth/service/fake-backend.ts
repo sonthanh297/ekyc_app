@@ -23,10 +23,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return authenticate();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
+                    case url.endsWith('/ibankuser') && method === 'POST':
+                    return getUsers();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
-            }    
+            }
         }
 
         // route functions
@@ -48,6 +50,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             if (!isLoggedIn()) return unauthorized();
             return ok(users);
         }
+
+        function ibankUser() {
+
+        }
+
+
+
+
 
         // helper functions
 

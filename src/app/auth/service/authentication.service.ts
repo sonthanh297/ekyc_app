@@ -35,6 +35,17 @@ export class AuthenticationService {
             }));
     }
 
+
+    registerIbank(username: string, phone: string, email: string,isLegal: string,companyName: string,mst: string,kd: string) {
+      return this.http.post<any>(`${environment.apiUrl}/ibankuser`, { username, phone,email,isLegal,companyName,mst,kd })
+          .pipe(map(user => {
+              // store user details and jwt token in local storage to keep user logged in between page refreshes
+              localStorage.setItem('user', JSON.stringify(user));
+              this.userSubject.next(user);
+              return user;
+          }));
+  }
+
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
