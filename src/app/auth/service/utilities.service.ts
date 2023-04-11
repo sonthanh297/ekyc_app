@@ -1,7 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
+import { throwError } from 'rxjs/internal/observable/throwError';
 
 @Injectable({ providedIn: 'root' })
 export class UtilitiesService {
+
     constructor(@Inject('Window') private window: Window) { }
 
     getApiUrl() {
@@ -31,4 +34,15 @@ export class UtilitiesService {
         }
         return '';
     }
+
+    handleError(error: HttpErrorResponse) {
+      console.error('server error:', error);
+      if (error.error instanceof Error) {
+          const errMessage = error.error.message;
+          return throwError(() => errMessage);
+          // Use the following instead if using lite-server
+          // return Observable.throw(err.text() || 'backend server error');
+      }
+      return throwError(() => error || 'Node.js server error');
+  }
 }

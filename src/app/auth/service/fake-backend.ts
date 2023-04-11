@@ -23,8 +23,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return authenticate();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
-                    case url.endsWith('/ibankuser') && method === 'POST':
+                case url.endsWith('/ibankuser') && method === 'POST':
                     return ibankUser();
+                case url.endsWith('/api/customers') && method === 'GET':
+                      return getIbankUser();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -55,7 +57,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
             const {username, phone, email,isLegal,companyName,mst,kd} = body;
             return ok ();
-            
+
+        }
+
+        function getIbankUser() {
+          return ok(JSON.parse(localStorage.getItem('ibankuser')!));
         }
 
 

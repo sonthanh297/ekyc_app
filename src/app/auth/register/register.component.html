@@ -61,13 +61,13 @@
               <option [ngValue]="null" disabled>Chọn</option>
               <option *ngFor="let country of list" >{{country}}</option>
             </select>
-        </div>
+          </div>
 
-                <button [disabled]="loading" class="btn btn-primary mt-3" >
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Tiếp tục
-                </button>
-                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+          <button [disabled]="loading" class="btn btn-primary mt-3" >
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Tiếp tục
+          </button>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
             </form>
         </div>
         </div>
