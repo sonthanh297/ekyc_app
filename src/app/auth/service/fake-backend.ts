@@ -56,7 +56,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function ibankUser() {
 
             const {username, phone, email,isLegal,companyName,mst,kd} = body;
-            return ok ();
+            return ok ( body);
 
         }
 

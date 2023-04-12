@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.userService.getCustomers();
     this.ibankUser = this.userService.userValue
   }
 }
