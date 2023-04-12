@@ -9,8 +9,8 @@ import { UserModule } from './user/user.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { fakeBackendProvider } from './auth/service/fake-backend';
-import { JwtInterceptor } from './auth/service/jwt.interceptor';
-import { ErrorInterceptor } from './auth/service/error.interceptor';
+import { JwtInterceptor } from './shared/service/jwt.interceptor';
+import { ErrorInterceptor } from './shared/service/error.interceptor';
 
 @NgModule({
   declarations: [
