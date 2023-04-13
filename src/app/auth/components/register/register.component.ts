@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from '../../service/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -60,11 +60,9 @@ export class RegisterComponent implements OnInit {
 
         this.error = '';
         this.loading = true;
-
-
-        this.authenticationService.registerIbank(this.f['username'].value, 
-        this.f['email'].value, 
-        this.f['phone'].value, 
+        this.authenticationService.registerIbank(this.f['username'].value,
+        this.f['email'].value,
+        this.f['phone'].value,
         this.f['isLegal'].value,
         this.f['companyName'].value,
         this.f['mst'].value,

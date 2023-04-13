@@ -54,29 +54,26 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function ibankUser() {
-
+         // return error('Lỗi quá rồi');
             const {username, phone, email,isLegal,companyName,mst,kd} = body;
-            return ok ( body);
+            return ok (body);
 
         }
 
         function getIbankUser() {
-          return ok(JSON.parse(localStorage.getItem('ibankuser')!));
+          return error('Lỗi quá rồi');
+         // return ok(JSON.parse(localStorage.getItem('ibankuser')!));
         }
-
-
-
-
-
         // helper functions
 
         function ok(body?: any) {
             return of(new HttpResponse({ status: 200, body }))
         }
 
-        function error(message: string) {
-            return throwError(() => ({ error: { message } }));
-        }
+        function error(message: any) {
+          return throwError(() => ({ error: { message } }))
+              .pipe(materialize(), delay(500), dematerialize()); // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648);
+      }
 
         function unauthorized() {
             return throwError(() => ({ status: 401, error: { message: 'Unauthorised' } }));

@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class ProfileComponent implements OnInit{
 
-  ibankUser: IbankUser | null = null;
+  ibankUser!: IbankUser
 
   constructor(private userService: UserService) {
 
@@ -17,6 +17,6 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
     this.userService.getCustomers();
-    this.ibankUser = this.userService.userValue
+    this.ibankUser = this.userService.userValue!
   }
 }
