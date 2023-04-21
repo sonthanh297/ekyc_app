@@ -29,3 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ng generate service [service name]
 ng generate service [service name] services
+
+ng g component folder-name/component-name

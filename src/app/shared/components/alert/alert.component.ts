@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Alert, AlertType } from '../../model/alert';
-import { AlertService } from '../../service/alert.service';
+import { AlertService } from '../../client-service/alert.service';
 
 
 @Component({ selector: 'alert', templateUrl: 'alert.component.html' })

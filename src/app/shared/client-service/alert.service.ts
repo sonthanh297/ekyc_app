@@ -3,8 +3,6 @@ import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Alert, AlertOptions, AlertType } from '../model/alert';
 
-
-
 @Injectable({ providedIn: 'root' })
 export class AlertService {
     private subject = new Subject<Alert>();
