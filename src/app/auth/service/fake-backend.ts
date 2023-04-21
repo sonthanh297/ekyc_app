@@ -57,7 +57,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
          // return error('Lỗi quá rồi');
             const {username, phone, email,isLegal,companyName,mst,kd} = body;
             return ok (body);
-
         }
 
         function getIbankUser() {

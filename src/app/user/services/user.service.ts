@@ -39,7 +39,7 @@ export class UserService {
               }),
               //catchError(this.utilitiesService.handleError)
           );
-  }
+    }
 
 
 }

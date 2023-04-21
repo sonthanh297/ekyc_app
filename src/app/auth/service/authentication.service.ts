@@ -31,7 +31,7 @@ export class AuthenticationService {
         return this.userSubject.value;
     }
 
-    login(username: string, password: string) {
+  login(username: string, password: string) {
         return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -39,7 +39,7 @@ export class AuthenticationService {
                 this.userSubject.next(user);
                 return user;
             }));
-    }
+  }
 
 
   registerIbank(username: string, phone: string, email: string,isLegal: string,companyName: string,mst: string,kd: string) {
@@ -52,10 +52,10 @@ export class AuthenticationService {
       }));
   }
 
-    logout() {
+  logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
         this.userSubject.next(null);
         this.router.navigate(['/login']);
-    }
+  }
 }
