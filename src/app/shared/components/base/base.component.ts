@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BaseService } from '../../service/base.service';
 
 @Component({
   template: ''
 })
-export class BaseComponent {
-  constructor(private http: HttpClient) {}
+export class BaseComponent<T> {
 
-  protected getDataFromApi(apiUrl: string) {
-    return this.http.get(apiUrl);
-  }
+
+  constructor(private service:BaseService<T>) {}
+
+
 }
 
 // import { Component } from '@angular/core';
