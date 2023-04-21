@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ListResponseModel } from '../model/list-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export abstract class BaseService<T> {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<T[]> {
+  getAll(): Observable<ListResponseModel<T>> {
     const url = `${this.baseUrl}/items`;
-    return this.http.get<T[]>(url);
+    return this.http.get<ListResponseModel<T>>(url);
   }
 
   getById(id: number): Observable<T> {
@@ -36,6 +37,8 @@ export abstract class BaseService<T> {
     return this.http.delete(url);
   }
 }
+
+
 
 // import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
