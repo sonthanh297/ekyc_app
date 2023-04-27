@@ -24,8 +24,4 @@ export class ListAccountComponent extends BaseComponent<User> implements OnInit 
     });
   }
 
-
-
-
-
 }
