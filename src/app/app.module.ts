@@ -12,7 +12,8 @@ import { fakeBackendProvider } from './auth/service/fake-backend';
 import { JwtInterceptor } from './shared/service/jwt.interceptor';
 import { ErrorInterceptor } from './shared/intercepters/error.interceptor';
 import { ProgressBarInterceptor } from './shared/intercepters/progress-bar.interceptor';
-import { FileUploadComponent } from './modules/file-upload/file-upload.component';
+import { FileUploadComponent } from './modules/file-upload/components/file-upload.component';
+
 
 @NgModule({
   declarations: [
