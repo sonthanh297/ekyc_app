@@ -4,6 +4,19 @@ import { AuthComponent } from './auth.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
+export const authPaths = {
+  base: 'auth',
+  logIn: 'log-in',
+  register: 'register',
+  logout: 'logout',
+};
+
+export const authRoutes = {
+  logIn: `/${authPaths.base}/${authPaths.logIn}`,
+  register: `/${authPaths.base}/${authPaths.register}`,
+  logout: `/${authPaths.base}/${authPaths.logout}`,
+};
+
 export const AUTH_ROUTES = {
   AUTH: '',
   REGISTER: 'register',

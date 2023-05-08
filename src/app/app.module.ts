@@ -13,19 +13,23 @@ import { JwtInterceptor } from './shared/service/jwt.interceptor';
 import { ErrorInterceptor } from './shared/intercepters/error.interceptor';
 import { ProgressBarInterceptor } from './shared/intercepters/progress-bar.interceptor';
 import { FileUploadComponent } from './modules/file-upload/components/file-upload.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    FileUploadComponent
+    FileUploadComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
