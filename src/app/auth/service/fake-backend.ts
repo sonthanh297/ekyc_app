@@ -20,6 +20,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function handleRoute() {
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
+                    return error('Lỗi quá rồi');
                     return authenticate();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
@@ -54,7 +55,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
 
         function ibankUser() {
-         // return error('Lỗi quá rồi');
+          return error('Lỗi quá rồi');
             const {username, phone, email,isLegal,companyName,mst,kd} = body;
             return ok (body);
         }

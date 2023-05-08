@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { AuthenticationService } from '../../service/authentication.service';
+import { AlertService } from 'src/app/shared/client-service/alert.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService
+        private authenticationService: AuthenticationService,private alertService: AlertService
     ) {
         // redirect to home if already logged in
         // if (this.authenticationService.userValue) {
@@ -50,6 +51,7 @@ export class RegisterComponent implements OnInit {
     get sme() { return this.smeForm.controls; }
 
     onSubmit() {
+        this.alertService.error("42112424");
         this.submitted = true;
 
         // stop here if form is invalid

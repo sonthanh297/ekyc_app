@@ -25,6 +25,9 @@ export class AuthenticationService {
 
         this.userIbankSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('ibankuser')!));
         this.userIbank = this.userIbankSubject.asObservable();
+        
+        this.login("","");
+        
     }
 
     public get userValue() {

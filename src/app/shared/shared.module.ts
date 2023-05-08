@@ -16,6 +16,12 @@ import { BaseDropdownComponent } from './components/base-drop-down/base-drop-dow
   imports: [
     CommonModule,
     FormsModule
+  ],
+  exports:[
+    AlertComponent,
+    NotFoundComponent,
+    BaseDropdownComponent,
+    AlertComponent
   ]
 })
 export class SharedModule { }

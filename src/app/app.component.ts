@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './auth/model/user.model';
 import { AuthenticationService } from './auth/service/authentication.service';
+import { AlertService } from './shared/client-service/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,9 @@ export class AppComponent {
 
   user?: User | null;
 
-    constructor(private authenticationService: AuthenticationService) {
+    constructor(private authenticationService: AuthenticationService,private alertService : AlertService) {
         this.authenticationService.user.subscribe(x => this.user = x);
+        this.alertService.error("sdgsgd");
     }
 
     logout() {
