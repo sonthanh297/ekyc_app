@@ -33,3 +33,4 @@ ng generate service [service name] services
 ng g component folder-name/component-name
 
 ng generate service  modules/file-upload/uploadfile 
+ng g module folder-name/module-name
